@@ -1,3 +1,4 @@
+#LIFO
 from collections import deque
 start='A'
 stack=deque()
@@ -19,6 +20,9 @@ while stack:
         if n not in visited:
             path=path+n
             stack.append(n)
+
+#BFS
+# only change is that queue.pop(0) FIFO
 
 
 
