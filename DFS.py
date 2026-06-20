@@ -17,7 +17,7 @@ while stack:
         break
     for n ,w in graph[node]:
         if n not in visited:
-            new_path=path+n
+            path=path+n
             stack.append(n)
 
 
