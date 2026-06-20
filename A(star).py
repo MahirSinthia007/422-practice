@@ -19,4 +19,24 @@ def A_star():
     'G': 0 }
 
     pq=[]
-    heapq.heappush(pq,(heuristics['A'],'A',))
+    heapq.heappush(pq,(heuristics['A'],'A',0))
+    visited=[]
+    while pq:
+        h,node,g=heapq.heappop(pq)
+        if node in visited:
+            continue
+        if node not in visited:
+            visited.append(node)
+        if node == "G":
+            print(g)
+            return
+        if node not in graph.keys():
+            continue
+        for n,w in graph[node]:
+            if n not in visited:
+                temp_g=g+w
+                new_f=temp_g+ heuristics[n]
+                heapq.heappush(pq,(new_f,n,temp_g))
+    print("-1")
+
+A_star()
